@@ -114,6 +114,19 @@
   .conclusion-box .cl-big { font-size: 18px; font-weight: 800; color: #dc2626; }
   .conclusion-box .cl-big span { font-size: 12px; font-weight: 400; color: #64748b; }
   .conclusion-box .cl-sub { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+  .premium-intro { background: linear-gradient(135deg, #1a1a2e 0%, #2d1b4e 100%); border-radius: 14px; padding: 24px; display: flex; gap: 20px; align-items: flex-start; margin-bottom: 20px; color: #fff; }
+  .pi-avatar { width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #fdcb6e, #e17055); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800; color: #1a1a2e; flex-shrink: 0; }
+  .pi-info { flex: 1; }
+  .pi-name { font-size: 18px; font-weight: 800; }
+  .pi-name .pi-tag { font-size: 12px; font-weight: 400; color: #b2bec3; margin-left: 8px; }
+  .pi-stats { display: flex; gap: 18px; margin: 8px 0 10px; flex-wrap: wrap; }
+  .pi-stat { font-size: 13px; color: #dfe6e9; }
+  .pi-stat strong { font-size: 16px; color: #fdcb6e; }
+  .pi-desc { font-size: 13px; color: #b2bec3; line-height: 1.7; }
+  @media (max-width: 640px) {
+    .premium-intro { flex-direction: column; align-items: center; text-align: center; }
+    .pi-stats { justify-content: center; }
+  }
   .contact-bar { display: flex; align-items: center; justify-content: center; gap: 0; background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 14px; padding: 16px 20px; margin-top: 16px; color: #fff; flex-wrap: wrap; }
   .contact-item { display: flex; align-items: center; gap: 8px; padding: 6px 16px; }
   .contact-item .cl { font-size: 12px; color: #b2bec3; white-space: nowrap; }
@@ -200,6 +213,18 @@
 <!-- 尊享私教 -->
 <div class="section" id="premium">
   <div class="section-title"><span class="badge badge-premium">升级</span> 尊享私教</div>
+  <div class="premium-intro">
+    <div class="pi-avatar">兔哥</div>
+    <div class="pi-info">
+      <div class="pi-name">兔哥 <span class="pi-tag">前华为HR · 大厂在职</span></div>
+      <div class="pi-stats">
+        <span class="pi-stat"><strong>5000+</strong> 辅导上岸</span>
+        <span class="pi-stat"><strong>200万+</strong> 全网粉丝</span>
+        <span class="pi-stat"><strong>10年+</strong> 求职辅导经验</span>
+      </div>
+      <div class="pi-desc">精通互联网/金融/快消/制造/咨询等全行业求职，亲手打磨简历上万份，学员遍布BAT、字节、华为、四大、券商等头部公司。尊享私教由兔哥本人全程带队，限额招生，名额稀缺。</div>
+    </div>
+  </div>
   <div class="card-grid">
     <div class="card rec">
       <div class="card-hd">
