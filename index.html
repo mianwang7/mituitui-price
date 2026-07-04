@@ -113,7 +113,21 @@
   .conclusion-box { background: #fef2f2; border-radius: 10px; padding: 14px 16px; margin-top: 12px; text-align: center; border: 1px dashed #fca5a5; }
   .conclusion-box .cl-big { font-size: 18px; font-weight: 800; color: #dc2626; }
   .conclusion-box .cl-big span { font-size: 12px; font-weight: 400; color: #64748b; }
-  .conclusion-box .cl-sub { font-size: 12px; color: #94a3b8; margin-top: 4px; }</style>
+  .conclusion-box .cl-sub { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+  .contact-bar { display: flex; align-items: center; justify-content: center; gap: 0; background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 14px; padding: 16px 20px; margin-top: 16px; color: #fff; flex-wrap: wrap; }
+  .contact-item { display: flex; align-items: center; gap: 8px; padding: 6px 16px; }
+  .contact-item .cl { font-size: 12px; color: #b2bec3; white-space: nowrap; }
+  .contact-item .cv { font-size: 15px; font-weight: 700; color: #fdcb6e; white-space: nowrap; cursor: pointer; }
+  .contact-item .cv .copy-hint { font-size: 11px; font-weight: 400; color: #636e72; margin-left: 4px; }
+  .contact-item .cv:hover .copy-hint { color: #fdcb6e; }
+  .contact-divider { width: 1px; height: 24px; background: rgba(255,255,255,0.15); }
+  .copy-toast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: #1a1a2e; color: #fff; padding: 10px 24px; border-radius: 10px; font-size: 14px; font-weight: 600; opacity: 0; transition: opacity 0.3s; z-index: 999; pointer-events: none; }
+  .copy-toast.show { opacity: 1; }
+  @media (max-width: 640px) {
+    .contact-bar { flex-direction: column; gap: 4px; padding: 14px; }
+    .contact-divider { display: none; }
+    .contact-item { width: 100%; justify-content: center; }
+  }</style>
 </head>
 <body>
 <div class="container">
@@ -334,14 +348,23 @@
   </div>
 
   <div class="source">数据来源：各机构官网、公开报价及市场调研 · 实际价格以官方为准</div>
+  <div class="copy-toast"></div>
 </div>
 
 <div class="bottom-note">
   朋友圈每天更新当天真实上岸案例 · 所有信息可自证可佐证 · 欢迎全网比价
 </div>
 
+<div class="contact-bar">
+  <div class="contact-item"><span class="cl">对接负责人</span><span class="cv">安源</span></div>
+  <div class="contact-divider"></div>
+  <div class="contact-item"><span class="cl">微信号</span><span class="cv copy-btn" data-copy="tuge_vip">tuge_vip <span class="copy-hint">点击复制</span></span></div>
+  <div class="contact-divider"></div>
+  <div class="contact-item"><span class="cl">手机号</span><span class="cv copy-btn" data-copy="17723005416">17723005416 <span class="copy-hint">点击复制</span></span></div>
+</div>
+
 <div class="footer">
-  米推兔 · 兔哥求职陪跑
+  米推兔 · 兔哥求职陪跑 · 扫码或添加微信咨询
 </div>
 
 </div>
@@ -364,6 +387,29 @@ window.addEventListener('scroll', function() {
   navLinks.forEach(function(l) {
     l.classList.remove('active');
     if (l.getAttribute('href') === '#' + current) { l.classList.add('active'); }
+  });
+});
+
+// 复制微信号/手机号
+document.querySelectorAll('.copy-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var text = this.getAttribute('data-copy');
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    // toast
+    var toast = document.querySelector('.copy-toast') || (function() {
+      var el = document.createElement('div');
+      el.className = 'copy-toast';
+      document.body.appendChild(el);
+      return el;
+    })();
+    toast.textContent = '已复制: ' + text;
+    toast.classList.add('show');
+    setTimeout(function() { toast.classList.remove('show'); }, 2000);
   });
 });
 </script>
